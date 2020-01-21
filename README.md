@@ -1,4 +1,4 @@
-# :octocat: GitEmoji
+# GitEmoji :octocat:
 
 Source code for GitEmoji website, where we can see every emoji available to be used at Github on a modern interface, with constantly updated data.
 
