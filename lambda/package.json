@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "deploy": "sls deploy -s prod",
+    "logs": "sls logs -s prod",
+    "invoke": "sls invoke -s prod"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.607.0",
+    "cheerio": "^0.22.0",
+    "request": "^2.88.0"
+  }
+}

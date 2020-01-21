@@ -1,18 +1,16 @@
-'use strict';
+const { getCategorizeGithubEmojiIds } = require('./fetch')
+const S3 = require('./s3')
+const { Buffer } = require('buffer')
 
-module.exports.hello = async event => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify(
-      {
-        message: 'Go Serverless v1.0! Your function executed successfully!',
-        input: event,
-      },
-      null,
-      2
-    ),
-  };
+module.exports.gitemoji = async (event, context) => {
+  // Make sure we wait for it to finish
+  context.callbackWaitsForEmptyEventLoop = false
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
-};
+  // Fetch data, and make it a Buffer
+  const categorizedGithubEmojiIds = await getCategorizeGithubEmojiIds()
+  const dataBuffer = Buffer.from(JSON.stringify(categorizedGithubEmojiIds))
+
+  // Save it to S3
+  const downloadUrl = await S3.upload('gitemoji', dataBuffer, 'gitemoji.json')
+  console.log(`Available at ${downloadUrl}`)
+}

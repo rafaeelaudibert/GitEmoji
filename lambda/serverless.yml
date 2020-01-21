@@ -1,9 +1,24 @@
+org: rafaeelaudibert
+app: gitemoji
 service: git-emoji
 
 provider:
   name: aws
   runtime: nodejs12.x
+  stage: ${opt:stage, self:custom.defaultStage}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - "s3:*"
+      Resource: "arn:aws:s3:::gitemoji/*"
+custom:
+  defaultStage: dev
 
 functions:
-  hello:
-    handler: handler.hello
+  gitemoji:
+    name: gitemoji
+    handler: handler.gitemoji
+    timeout: 20
+    memorySize: 384
+    events:
+      - schedule: rate(7 days)
