@@ -2,8 +2,6 @@
 
 Source code for GitEmoji website, where we can see every emoji available to be used at Github on a modern interface, with constantly updated data.
 
-> **Disclaimer**: This repository is still a Work in Progress project. Project scheduled for end of 2020 January.
-
 ## Technologies :computer:
 
 This project was developed to learn about some technologies such as:
