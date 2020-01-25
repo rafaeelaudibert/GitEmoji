@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/GitEmoji/static/css/main.5e07143f.chunk.css",
+    "main.js": "/GitEmoji/static/js/main.46963c0a.chunk.js",
+    "main.js.map": "/GitEmoji/static/js/main.46963c0a.chunk.js.map",
+    "runtime-main.js": "/GitEmoji/static/js/runtime-main.b29566cf.js",
+    "runtime-main.js.map": "/GitEmoji/static/js/runtime-main.b29566cf.js.map",
+    "static/js/2.e38d832c.chunk.js": "/GitEmoji/static/js/2.e38d832c.chunk.js",
+    "static/js/2.e38d832c.chunk.js.map": "/GitEmoji/static/js/2.e38d832c.chunk.js.map",
+    "index.html": "/GitEmoji/index.html",
+    "precache-manifest.27d7f712eb979968d6d83d1576762853.js": "/GitEmoji/precache-manifest.27d7f712eb979968d6d83d1576762853.js",
+    "service-worker.js": "/GitEmoji/service-worker.js",
+    "static/css/main.5e07143f.chunk.css.map": "/GitEmoji/static/css/main.5e07143f.chunk.css.map",
+    "static/js/2.e38d832c.chunk.js.LICENSE": "/GitEmoji/static/js/2.e38d832c.chunk.js.LICENSE",
+    "static/media/logo.png": "/GitEmoji/static/media/logo.3fe6a472.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b29566cf.js",
+    "static/js/2.e38d832c.chunk.js",
+    "static/css/main.5e07143f.chunk.css",
+    "static/js/main.46963c0a.chunk.js"
+  ]
+}
