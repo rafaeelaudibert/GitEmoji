@@ -1,109 +1,68 @@
-import React, { Fragment } from "react";
-import {
-  Button,
-  Navbar,
-  Container,
-  Column,
-  Box,
-  Image,
-  Hero,
-  Input
-} from "rbx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+// React + third party
+import React, { useState } from "react";
+import { useAsync } from "react-async";
+import { Container, Footer } from "rbx";
 
-import "./App.scss";
-import "./spacing.scss";
-import logo from "./assets/logo.png";
+// Downloader service
+import getData from "./services/DataDownloader";
+
+// Components
+import GitEmojiNavbar from "./components/Containers/GitEmojiNavbar";
+import GitEmojiHero from "./components/Containers/GitEmojiHero";
+import Loading from "./components/TableComponents/Loading";
+import Error from "./components/TableComponents/Error";
+import Table from "./components/Containers/Table";
+
+// Styling
+import "./assets/App.scss";
+import "./assets/spacing.scss";
 
 const App = () => {
+  let { data, error, isLoading } = useAsync({ promiseFn: getData });
+
+  const [inputValue, setInputValue] = useState("");
+  const handleInputChange = event => setInputValue(event.target.value);
+
+  // Filtar de acordo com o inputValue
+  if (data != null) {
+    data = Object.fromEntries(
+      Object.entries(data)
+        .map(([categoryName, subCategory]) => [
+          categoryName,
+          Object.fromEntries(
+            Object.entries(subCategory)
+              .map(([subCategoryName, emojis]) => [
+                subCategoryName,
+                emojis.filter(emoji =>
+                  emoji.some(emojiData =>
+                    emojiData.emojiId.includes(inputValue)
+                  )
+                )
+              ])
+              .filter(([_subCategoryName, emojis]) => emojis.length > 0)
+          )
+        ])
+        .filter(
+          ([_categoryName, subCategory]) => Object.keys(subCategory).length > 0
+        )
+    );
+  }
+
+  const containerBox =
+    (isLoading && <Loading />) ||
+    (error && <Error error={error} />) ||
+    (data && <Table data={data} />);
+
   return (
-    <Fragment>
-      <Navbar color="danger" transparent>
-        <Navbar.Brand>
-          <Navbar.Item href="#">
-            <Image alt="Logo" src={logo} role="presentation" />
-          </Navbar.Item>
-          <Navbar.Burger />
-        </Navbar.Brand>
-        <Navbar.Menu>
-          <Navbar.Segment align="end">
-            <Navbar.Item>
-              <Button.Group>
-                <Button
-                  color="warning"
-                  as="a"
-                  href="https://github.com/rafaeelaudibert/GitEmoji"
-                  target="_blank"
-                >
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    className="has-margin-right-sm"
-                  />
-                  <strong>Github</strong>
-                </Button>
-              </Button.Group>
-            </Navbar.Item>
-          </Navbar.Segment>
-        </Navbar.Menu>
-      </Navbar>
-      <Hero color="primary" className="is-bold is-medium has-margin-bottom-lg">
-        <Hero.Body>
-          <Container>
-            <h1 class="title">Github Emojis</h1>
-            <h2 class="subtitle">You can search for them in the box below</h2>
-            <Input placeholder="Search any emoji" type="text"></Input>
-          </Container>
-        </Hero.Body>
-        <Hero.Foot align="end" className="has-padding-right-lg">
-          This is not affiliated, endorsed or related to Github in any way.
-        </Hero.Foot>
-      </Hero>
-      <Container>
-        <Column.Group>
-          <Column size="one-half">
-            <Box>
-              <Image.Container size={128}>
-                <Image
-                  alt="Image"
-                  src="https://bulma.io/images/placeholders/128x128.png"
-                />
-              </Image.Container>
-            </Box>
-          </Column>
-          <Column>25%</Column>
-          <Column>25%</Column>
-        </Column.Group>
-        <Column.Group>
-          <Column size="one-half">
-            <Box>
-              <Image.Container size={128}>
-                <Image
-                  alt="Image"
-                  src="https://bulma.io/images/placeholders/128x128.png"
-                />
-              </Image.Container>
-            </Box>
-          </Column>
-          <Column>25%</Column>
-          <Column>25%</Column>
-        </Column.Group>
-        <Column.Group>
-          <Column size="one-half">
-            <Box>
-              <Image.Container size={128}>
-                <Image
-                  alt="Image"
-                  src="https://bulma.io/images/placeholders/128x128.png"
-                />
-              </Image.Container>
-            </Box>
-          </Column>
-          <Column>25%</Column>
-          <Column>25%</Column>
-        </Column.Group>
-      </Container>
-    </Fragment>
+    <>
+      <GitEmojiNavbar />
+      <GitEmojiHero
+        inputValue={inputValue}
+        handleInputChange={handleInputChange}
+      />
+      <Container fluid> {containerBox} </Container>
+      <Footer />
+    </>
   );
 };
 
