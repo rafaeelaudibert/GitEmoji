@@ -1,0 +1,28 @@
+@charset 'utf-8';
+
+// Import Inconsolata Google Font
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap");
+
+// Import Bulma styles
+@import "~bulma/bulma";
+
+// Import rbx style fixes (**very simple**)
+@import "~rbx/rbx";
+
+// Configure background for the emoji name
+div.emojiName {
+  display: block;
+  height: initial;
+  white-space: initial;
+
+  transition: background-color 0.3s ease-in-out;
+  word-wrap: break-word;
+  font-style: italic;
+  font-family: "Inconsolata", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+// Configure box to align columns
+.box {
+  height: 100%;
+}
