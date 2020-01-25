@@ -53,6 +53,9 @@ const Emoji = ({ data: emojis }) => {
             onClick={() =>
               copyToClipboard(emojiName, emojiIdx, setClicked, setError)
             }
+            onTouchStart={() =>
+              copyToClipboard(emojiName, emojiIdx, setClicked, setError)
+            }
           >
             {emojiName}
           </Button>
