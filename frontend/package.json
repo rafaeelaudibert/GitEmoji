@@ -1,7 +1,13 @@
 {
   "name": "git-emoji",
-  "version": "0.1.0",
-  "private": true,
+  "description": "React-based website to highlight the emojis available at Github",
+  "homepage": "https://rafaeelaudibert.github.io/GitEmoji",
+  "author": "Rafael Baldasso Audibert <rafaeelaudibert@gmail.com> (http://rafaeelaudibert.github.io)",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rafaeelaudibert/GitEmoji"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
@@ -32,7 +38,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
