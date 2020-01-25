@@ -47,6 +47,7 @@ const Emoji = ({ data: emojis }) => {
           <Button
             key={emojiName}
             as="div"
+            name={`Click to copy ${emojiName}`}
             color={clicked === emojiIdx ? "success" : "light"}
             className="emojiName has-margin-bottom-xs"
             onClick={() =>

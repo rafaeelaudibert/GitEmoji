@@ -13,7 +13,7 @@ const GitEmojiNavbar = () => {
         <Navbar.Item href="#">
           <Image alt="Logo" src={logo} role="presentation" />
         </Navbar.Item>
-        <Navbar.Burger />
+        <Navbar.Burger name="Menu" />
       </Navbar.Brand>
       <Navbar.Menu backgroundColor="danger">
         <Navbar.Segment
@@ -24,6 +24,7 @@ const GitEmojiNavbar = () => {
             <Button
               color="warning"
               as="a"
+              name="GitEmoji Repository"
               href="https://github.com/rafaeelaudibert/GitEmoji"
               target="_blank"
             >
