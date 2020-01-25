@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0c049fc7a01d26652f34d3c3aaabf18a",
+    "revision": "2eb21b248f831f9886a872878d13a75d",
     "url": "/GitEmoji/index.html"
   },
   {
