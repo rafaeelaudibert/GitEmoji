@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "11d4e149d0f1fc77d74bfe3a7813a8b9",
+    "revision": "2c68dd0344bb4e202d4fd08f202e7e71",
     "url": "/GitEmoji/index.html"
   },
   {
-    "revision": "70a33cbc92cff145a7f9",
+    "revision": "4f1e5da9b1b755839f06",
     "url": "/GitEmoji/static/css/main.5e07143f.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/GitEmoji/static/js/2.e38d832c.chunk.js.LICENSE"
   },
   {
-    "revision": "70a33cbc92cff145a7f9",
-    "url": "/GitEmoji/static/js/main.46963c0a.chunk.js"
+    "revision": "4f1e5da9b1b755839f06",
+    "url": "/GitEmoji/static/js/main.ef4b052d.chunk.js"
   },
   {
     "revision": "3ab334b473f92ca9b288",
