@@ -14,7 +14,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.12.0",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "bulma": "^0.8.0",
     "rbx": "^2.2.0",
     "react": "^16.12.0",
